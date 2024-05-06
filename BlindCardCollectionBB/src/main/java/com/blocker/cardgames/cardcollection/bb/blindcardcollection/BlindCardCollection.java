@@ -24,7 +24,7 @@ public final class BlindCardCollection<C extends Card> extends CardCollection<C>
             }
 
             @Override public C next() {
-                return cards.get(0);
+                return cards.remove(0);
             }
         };
     }
