@@ -19,6 +19,9 @@ import java.util.AbstractCollection;
  * @param <C> The type of card that this collection holds.
  */
 public abstract class CardCollection<C extends Card> extends AbstractCollection<C> {
+    protected CardCollection() {
+    }
+
     /**
      * Checks whether the collection contains any cards.
      *

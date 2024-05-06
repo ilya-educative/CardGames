@@ -1,5 +1,5 @@
 module CardInteractionAPI {
-    requires CardAPI;
+    requires transitive CardAPI;
 
     exports com.blocker.cardgames.cardinteraction.api;
 }

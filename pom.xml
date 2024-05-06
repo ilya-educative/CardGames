@@ -13,6 +13,7 @@
         <module>StandardCardBB</module>
         <module>CardInteractionAPI</module>
         <module>CardCollectionAPI</module>
+        <module>BlindCardCollectionBB</module>
     </modules>
 
     <properties>
