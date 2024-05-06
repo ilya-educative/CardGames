@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.blocker.cardgames.cardmap.bb.cardboardmap</groupId>
-    <artifactId>CardBoardMapBB</artifactId>
+    <artifactId>BoardCardMapBB</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
