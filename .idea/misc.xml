@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/CardMapBB/pom.xml" />
         <option value="$PROJECT_DIR$/TestUnoCardBB/pom.xml" />
       </set>
     </option>
