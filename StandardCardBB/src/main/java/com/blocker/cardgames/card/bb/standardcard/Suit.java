@@ -16,8 +16,16 @@ public enum Suit {
         this.color = color;
     }
 
+    public String symbol() {
+        return symbol;
+    }
+
+    public SuitColor color() {
+        return color;
+    }
+
     public static List<Suit> allSuits() {
-        return List.of(Hearts, Diamonds, Clubs, Spades);
+        return List.of(values());
     }
 
     public static Suit randomSuit() {
@@ -38,13 +46,5 @@ public enum Suit {
         return Stream.of(values())
                 .filter(suit -> suit.color == color)
                 .toList();
-    }
-
-    public String symbol() {
-        return symbol;
-    }
-
-    public SuitColor color() {
-        return color;
     }
 }
