@@ -10,14 +10,24 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!--Different type of Cards-->
         <module>CardAPI</module>
-        <module>CardInteractionAPI</module>
-        <module>CardCollectionAPI</module>
-        <module>CardMapAPI</module>
-
         <module>StandardCardBB</module>
+
+        <!--Different Card interactions-->
+        <module>CardInteractionAPI</module>
+
+        <!--Different Card collections-->
+        <module>CardCollectionAPI</module>
         <module>BlindCardCollectionBB</module>
+
+        <!--Different Card map collections-->
+        <module>CardMapAPI</module>
         <module>BoardCardMapBB</module>
+
+        <!--Different Card games-->
+        <module>DurakGameAPI</module>
+        <module>DurakCardInteractionBB</module>
     </modules>
 
     <properties>
