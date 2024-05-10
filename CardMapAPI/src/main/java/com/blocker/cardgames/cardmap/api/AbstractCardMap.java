@@ -21,5 +21,5 @@ import java.util.AbstractMap;
  * @param <K> The type of card that serves as the key in this map.
  * @param <V> The type of values stored in this map.
  */
-public abstract class CardMap<K extends Card, V> extends AbstractMap<K, V> {
+public abstract class AbstractCardMap<K extends Card, V> extends AbstractMap<K, V> {
 }

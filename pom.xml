@@ -23,7 +23,7 @@
 
         <!--Different Card map collections-->
         <module>CardMapAPI</module>
-        <module>BoardCardMapBB</module>
+        <module>CardMapBB</module>
 
         <!--Different Table Types-->
         <module>TableAPI</module>

@@ -9,8 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.blocker.cardgames.cardmap.bb.cardboardmap</groupId>
-    <artifactId>BoardCardMapBB</artifactId>
+    <groupId>com.blocker.cardgames.cardmap.bb.cardmap</groupId>
+    <artifactId>CardMapBB</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -18,6 +18,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.blocker.cardgames.card.api</groupId>
+            <artifactId>CardAPI</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>com.blocker.cardgames.cardmap.api</groupId>
             <artifactId>CardMapAPI</artifactId>
