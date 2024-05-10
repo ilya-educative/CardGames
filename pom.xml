@@ -25,6 +25,11 @@
         <module>CardMapAPI</module>
         <module>BoardCardMapBB</module>
 
+        <!--Different Table Types-->
+        <module>TableAPI</module>
+        <module>SingleSlotTableBB</module>
+        <module>MultipleSlotsTableBB</module>
+
         <!--Different Card games-->
         <module>DurakGameAPI</module>
         <module>DurakCardInteractionBB</module>
