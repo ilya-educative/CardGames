@@ -25,10 +25,14 @@
         <module>CardMapAPI</module>
         <module>CardMapBB</module>
 
-        <!--Different Table Types-->
+        <!--Different Table types-->
         <module>TableAPI</module>
         <module>SingleSlotTableBB</module>
         <module>MultipleSlotsTableBB</module>
+
+        <!--Different Round types-->
+        <module>RoundAPI</module>
+        <module>TurnBasedRoundBB</module>
 
         <!--Different Card games-->
         <module>DurakGameAPI</module>

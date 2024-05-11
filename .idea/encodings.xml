@@ -3,8 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/BlindCardCollectionBB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BlindCardCollectionBB/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/BoardCardMapBB/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/BoardCardMapBB/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CardAPI/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CardAPI/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CardCollectionAPI/src/main/java" charset="UTF-8" />
@@ -19,10 +17,22 @@
     <file url="file://$PROJECT_DIR$/DurakCardInteractionBB/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DurakGameAPI/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DurakGameAPI/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MatchAPI/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MatchAPI/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MultipleSlotsTableBB/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MultipleSlotsTableBB/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RoundAPI/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RoundAPI/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SingleSlotTableBB/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SingleSlotTableBB/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/StandardCardBB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/StandardCardBB/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TableAPI/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TableAPI/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TestUnoCardBB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TestUnoCardBB/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TurnBasedRoundBB/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TurnBasedRoundBB/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
