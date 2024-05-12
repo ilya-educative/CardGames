@@ -20,6 +20,7 @@
         <!--Different Card collections-->
         <module>CardCollectionAPI</module>
         <module>BlindCardCollectionBB</module>
+        <module>VisibleCardCollectionBB</module>
 
         <!--Different Card map collections-->
         <module>CardMapAPI</module>

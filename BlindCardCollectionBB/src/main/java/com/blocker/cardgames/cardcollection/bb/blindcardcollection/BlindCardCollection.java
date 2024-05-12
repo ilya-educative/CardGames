@@ -18,15 +18,16 @@ public final class BlindCardCollection<C extends Card> extends CardCollection<C>
     }
 
     @Override public Iterator<C> iterator() {
-        return new Iterator<>() {
-            @Override public boolean hasNext() {
-                return hasCards();
-            }
-
-            @Override public C next() {
-                return cards.remove(0);
-            }
-        };
+        return cards.iterator();
+//        return new Iterator<>() {
+//            @Override public boolean hasNext() {
+//                return hasCards();
+//            }
+//
+//            @Override public C next() {
+//                return cards.remove(0);
+//            }
+//        };
     }
 
     @Override public int size() {
