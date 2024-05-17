@@ -9,42 +9,38 @@ import java.util.function.Predicate;
 
 public final class SingleSlotTable<T> implements Table<T> {
     private static final int ID = 1;
-    private Optional<T> value;
-
-    public SingleSlotTable() {
-        value = Optional.empty();
-    }
+    private T value;
 
     @Override public boolean leave(int id) {
-        if (id == ID) {
-            value = Optional.empty();
-            return true;
-        }
-        return false;
+        return id == ID;
     }
 
     @Override public boolean join(int id, T type) {
-        if (id == ID && value.isEmpty()) {
-            value = Optional.ofNullable(type);
+        if (id == ID && value != null) {
+            value = type;
             return true;
         }
         return false;
     }
 
     @Override public Optional<Integer> firstAvailableSlot() {
-        if (value.isEmpty()) return Optional.of(ID);
+        if (value == null) return Optional.of(ID);
         return Optional.empty();
     }
 
     @Override public Optional<Integer> findIdBy(Predicate<T> predicate) {
-        if (value.isEmpty()) return Optional.empty();
-        if (predicate.test(value.get())) return Optional.of(ID);
+        if (value == null) return Optional.empty();
+        if (predicate.test(value)) return Optional.of(ID);
         return Optional.empty();
     }
 
+    @Override public Optional<T> findById(int id) {
+        return Optional.ofNullable(value);
+    }
+
     @Override public Optional<T> findOneBy(Predicate<T> predicate) {
-        if (value.isEmpty()) return Optional.empty();
-        if (predicate.test(value.get())) return value;
+        if (value == null) return Optional.empty();
+        if (predicate.test(value)) return Optional.of(value);
         return Optional.empty();
     }
 
@@ -53,6 +49,6 @@ public final class SingleSlotTable<T> implements Table<T> {
     }
 
     @Override public List<T> availableTypes() {
-        return value.map(List::of).orElse(Collections.emptyList());
+        return findById(ID).map(List::of).orElse(Collections.emptyList());
     }
 }

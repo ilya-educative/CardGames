@@ -3,14 +3,14 @@ package com.blocker.cardgames.round.api;
 /**
  * Abstract class representing a round.
  */
-public abstract class Round {
+public abstract class AbstractRound {
     /** The unique identifier of the round. */
     private final int id;
 
     /**
      * Constructs a new round and assigns it a unique identifier.
      */
-    protected Round() {
+    protected AbstractRound() {
         id = RoundID.id;
         RoundID.increment();
     }

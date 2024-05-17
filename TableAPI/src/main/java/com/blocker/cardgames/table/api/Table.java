@@ -6,11 +6,13 @@ import java.util.function.Predicate;
 
 /**
  * Interface representing a table where any type can occupy table slots.
+ *
  * @param <T> The type of data to occupy slots at the table.
  */
 public interface Table<T> {
     /**
      * Allows to leave from the table slot.
+     *
      * @param id The unique identifier of the slot at the table.
      * @return {@code true} if the slot was successfully vacated, {@code false} otherwise.
      */
@@ -18,7 +20,8 @@ public interface Table<T> {
 
     /**
      * Allows a type to join the table.
-     * @param id Table slot id.
+     *
+     * @param id   Table slot id.
      * @param type The type to join at the table.
      * @return {@code true} if the type successfully joined the table, {@code false} otherwise.
      */
@@ -26,6 +29,7 @@ public interface Table<T> {
 
     /**
      * Allows a type to join the table on the first available slot if exists.
+     *
      * @param type The type to join the table.
      * @return {@code true} if the type successfully joined the table, {@code false} otherwise.
      */
@@ -38,19 +42,30 @@ public interface Table<T> {
 
     /**
      * Finds the first available slot at the table.
+     *
      * @return An {@code Optional} containing the ID of the first available slot, or empty if no slot is available.
      */
     Optional<Integer> firstAvailableSlot();
 
     /**
      * Finds the slot id of a type that satisfies the given condition.
+     *
      * @param predicate The condition to be satisfied by the type.
      * @return An {@code Optional} containing the slot id of the type that satisfies the condition, or empty if no such type is found.
      */
     Optional<Integer> findIdBy(Predicate<T> predicate);
 
     /**
+     * Finds type by id
+     *
+     * @param id represents id for table position
+     * @return {@code Optional} containing the type by id
+     */
+    Optional<T> findById(int id);
+
+    /**
      * Finds a type that satisfies the given condition.
+     *
      * @param predicate The condition to be satisfied by the type.
      * @return An {@code Optional} containing the type that satisfies the condition, or empty if no such type is found.
      */
@@ -58,17 +73,21 @@ public interface Table<T> {
 
     /**
      * Amount of slots at the table
-     * @return Amount of slots at the table. */
+     *
+     * @return Amount of slots at the table.
+     */
     int size();
 
     /**
      * Retrieves a list of available types at the table slots.
+     *
      * @return A {@code List} containing all available types at the table.
      */
     List<T> availableTypes();
 
     /**
      * Finds all types that satisfy the given condition.
+     *
      * @param predicate The condition to be satisfied by the types.
      * @return A {@code List} containing all types that satisfy the condition.
      */
@@ -81,6 +100,7 @@ public interface Table<T> {
 
     /**
      * Computes the next slot id.
+     *
      * @param id The slot id of the current type.
      * @return The slot id of the next type. Returns first slot if last slot is reached otherwise returns next slot.
      */

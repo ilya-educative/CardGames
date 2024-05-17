@@ -1,10 +1,10 @@
 package com.blocker.cardgames.round.bb.turnbasedround;
 
-import com.blocker.cardgames.round.api.Round;
+import com.blocker.cardgames.round.api.AbstractRound;
 
 import java.util.Queue;
 
-public final class TurnBasedRound<T> extends Round {
+public final class TurnBasedRound<T> extends AbstractRound {
     private final Queue<T> turns;
 
     public TurnBasedRound(Queue<T> turns) {

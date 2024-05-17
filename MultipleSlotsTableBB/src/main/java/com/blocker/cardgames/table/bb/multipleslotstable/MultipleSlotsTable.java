@@ -47,6 +47,10 @@ public final class MultipleSlotsTable<T> implements Table<T> {
                 .findFirst();
     }
 
+    @Override public Optional<T> findById(int id) {
+        return values.get(id);
+    }
+
     @Override public Optional<T> findOneBy(Predicate<T> predicate) {
         return values.values()
                 .stream()

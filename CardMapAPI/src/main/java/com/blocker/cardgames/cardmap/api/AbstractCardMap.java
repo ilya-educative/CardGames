@@ -3,6 +3,7 @@ package com.blocker.cardgames.cardmap.api;
 import com.blocker.cardgames.card.api.Card;
 
 import java.util.AbstractMap;
+import java.util.List;
 
 /**
  * Represents an abstract mapping of cards to values of arbitrary types.
@@ -22,4 +23,5 @@ import java.util.AbstractMap;
  * @param <V> The type of values stored in this map.
  */
 public abstract class AbstractCardMap<K extends Card, V> extends AbstractMap<K, V> {
+    protected abstract List<K> getCards();
 }

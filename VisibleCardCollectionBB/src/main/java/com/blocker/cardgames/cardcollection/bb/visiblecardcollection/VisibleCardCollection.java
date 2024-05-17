@@ -20,4 +20,8 @@ public final class VisibleCardCollection<C extends Card> extends CardCollection<
     @Override public int size() {
         return cards.size();
     }
+
+    public C get(int index) {
+        return cards.get(index);
+    }
 }

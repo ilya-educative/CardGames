@@ -1,7 +1,20 @@
 module DurakGameAPI {
-    requires StandardCardBB;        // Card type
-    requires DurakCardInteractionBB;// to define whether card can defend against attacking card
-    requires BlindCardCollectionBB; // game deck
-    requires CardMapBB;             // game board
-    requires TurnBasedRoundBB;      // game round
+    requires StandardCardBB;
+    requires DurakCardInteractionBB;
+    requires BlindCardCollectionBB;
+    requires VisibleCardCollectionBB;
+    requires CardMapBB;
+    requires MultipleSlotsTableBB;
+    requires RoundAPI;
+    requires EmptyRoundBB;
+
+    exports com.blocker.cardgames.durakgame.api.action;
+    exports com.blocker.cardgames.durakgame.api.board;
+    exports com.blocker.cardgames.durakgame.api.config;
+    exports com.blocker.cardgames.durakgame.api.deck;
+    exports com.blocker.cardgames.durakgame.api.hand;
+    exports com.blocker.cardgames.durakgame.api.match;
+    exports com.blocker.cardgames.durakgame.api.round;
+    exports com.blocker.cardgames.durakgame.api.table;
+    exports com.blocker.cardgames.durakgame.api.trump;
 }

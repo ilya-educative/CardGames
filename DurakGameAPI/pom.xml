@@ -17,5 +17,55 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.blocker.cardgames.card.bb.standardcard</groupId>
+            <artifactId>StandardCardBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.cardmap.bb.cardmap</groupId>
+            <artifactId>CardMapBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.cardinteraction.bb.durakcardinteraction</groupId>
+            <artifactId>DurakCardInteractionBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.cardcollection.bb.visiblecardcollection</groupId>
+            <artifactId>VisibleCardCollectionBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.table.bb.multipleslotstable</groupId>
+            <artifactId>MultipleSlotsTableBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.cardcollection.bb.blindcardcollection</groupId>
+            <artifactId>BlindCardCollectionBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.round.api</groupId>
+            <artifactId>RoundAPI</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.blocker.cardgames.round.bb.emptyround</groupId>
+            <artifactId>EmptyRoundBB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>
