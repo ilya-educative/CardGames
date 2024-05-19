@@ -27,7 +27,7 @@ class ClassicBoardServiceTest {
 
     @MethodSource("clearBoardArguments")
     @ParameterizedTest
-    void clearBoard_movesCardsFromBoardToRoundLooser(
+    void clearBoard(
             Map<StandardCard, Optional<StandardCard>> initialCardsOnBoard,
             List<StandardCard> initialCardsInHand,
             boolean expectedIsRoundLooser,

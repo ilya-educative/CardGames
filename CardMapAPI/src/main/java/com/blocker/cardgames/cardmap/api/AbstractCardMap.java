@@ -24,4 +24,6 @@ import java.util.List;
  */
 public abstract class AbstractCardMap<K extends Card, V> extends AbstractMap<K, V> {
     protected abstract List<K> getCards();
+
+    public abstract boolean hasCards();
 }

@@ -1,6 +1,7 @@
 package com.blocker.cardgames.durakgame.api.table;
 
 import com.blocker.cardgames.durakgame.api.hand.DurakHand;
+import com.blocker.cardgames.durakgame.api.hand.DurakHandState;
 import com.blocker.cardgames.table.bb.multipleslotstable.MultipleSlotsTable;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class DurakTable {
     public DurakHand attacker() {
         return getHands()
                 .stream()
-                .filter(hand -> hand.state() == DurakHand.State.Attack)
+                .filter(hand -> hand.state() == DurakHandState.Attacking)
                 .findFirst()
                 .orElseThrow();
     }
@@ -28,7 +29,7 @@ public class DurakTable {
     public DurakHand defender() {
         return getHands()
                 .stream()
-                .filter(hand -> hand.state() == DurakHand.State.Defend)
+                .filter(hand -> hand.state() == DurakHandState.Defending)
                 .findFirst()
                 .orElseThrow();
     }
@@ -45,7 +46,7 @@ public class DurakTable {
         do {
             slotId = table.nextId(slotId);
             Optional<DurakHand> next = table.findById(slotId);
-            if (next.isPresent() && next.get().state() != DurakHand.State.Attack) {
+            if (next.isPresent() && next.get().state() != DurakHandState.Attacking) {
                 return slotId;
             }
         } while (retries-- > 0);
@@ -53,20 +54,16 @@ public class DurakTable {
     }
 
     public void attacker(int slotId) {
-        stateAt(slotId, DurakHand.State.Attack);
+        stateAt(slotId, DurakHandState.Attacking);
     }
 
     public void defender(int slotId) {
-        stateAt(slotId, DurakHand.State.Defend);
+        stateAt(slotId, DurakHandState.Defending);
     }
 
-    public void waiting(int slotId) {
-        stateAt(slotId, DurakHand.State.Wait);
-    }
-
-    private void stateAt(int slotId, DurakHand.State state) {
+    private void stateAt(int slotId, DurakHandState durakHandState) {
         table.findOneBy(hand -> hand.slotId() == slotId)
-                .ifPresent(hand -> hand.state(state));
+                .ifPresent(hand -> hand.state(durakHandState));
     }
 
     public boolean join(DurakHand durakHand) {

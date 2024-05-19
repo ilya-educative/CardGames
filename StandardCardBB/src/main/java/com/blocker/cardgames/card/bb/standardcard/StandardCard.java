@@ -42,6 +42,10 @@ public final class StandardCard implements Card {
         return Objects.hash(rank, suit);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public static final class Builder {
         private Rank rank;
         private Suit suit;
@@ -66,10 +70,6 @@ public final class StandardCard implements Card {
 
     public static ListBuilder listBuilder() {
         return new ListBuilder();
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     public static final class ListBuilder {

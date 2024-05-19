@@ -10,14 +10,14 @@ import java.util.Optional;
 public final class DurakHand {
     private final VisibleCardCollection<StandardCard> cards;
     private boolean isRoundLooser;
-    private State state;
+    private DurakHandState durakHandState;
     private int slotId;
     private DurakAction durakAction;
+    private boolean canAct;
 
     public DurakHand(VisibleCardCollection<StandardCard> cards, int slotId) {
         this.cards = cards;
         this.isRoundLooser = false;
-        this.state = State.Wait;
         this.slotId = slotId;
     }
 
@@ -61,12 +61,20 @@ public final class DurakHand {
         this.slotId = slotId;
     }
 
-    public State state() {
-        return state;
+    public DurakHandState state() {
+        return durakHandState;
     }
 
-    public void state(State state) {
-        this.state = state;
+    public void state(DurakHandState durakHandState) {
+        this.durakHandState = durakHandState;
+    }
+
+    public void canAct(boolean canAct) {
+        this.canAct = canAct;
+    }
+
+    public boolean canAct() {
+        return canAct;
     }
 
     public void action(DurakAction durakAction) {
@@ -75,9 +83,5 @@ public final class DurakHand {
 
     public Optional<DurakAction> action() {
         return Optional.ofNullable(durakAction);
-    }
-
-    public enum State {
-        Attack, Defend, Wait
     }
 }

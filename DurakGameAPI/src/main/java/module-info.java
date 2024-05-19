@@ -5,7 +5,6 @@ module DurakGameAPI {
     requires VisibleCardCollectionBB;
     requires CardMapBB;
     requires MultipleSlotsTableBB;
-    requires RoundAPI;
     requires EmptyRoundBB;
 
     exports com.blocker.cardgames.durakgame.api.action;

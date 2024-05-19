@@ -42,4 +42,8 @@ public final class DurakBoard {
     public void clear() {
         board.clear();
     }
+
+    public boolean hasCards() {
+        return board.hasCards();
+    }
 }

@@ -31,4 +31,8 @@ public final class CardMap<C extends Card> extends AbstractCardMap<C, Optional<C
                 })
                 .collect(Collectors.toList());
     }
+
+    @Override public boolean hasCards() {
+        return !getCards().isEmpty();
+    }
 }
