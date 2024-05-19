@@ -13,6 +13,10 @@ public final class VisibleCardCollection<C extends Card> extends CardCollection<
         this.cards = cards;
     }
 
+    @Override public boolean add(C card) {
+        return cards.add(card);
+    }
+
     @Override public Iterator<C> iterator() {
         return cards.iterator();
     }
@@ -23,5 +27,9 @@ public final class VisibleCardCollection<C extends Card> extends CardCollection<
 
     public C get(int index) {
         return cards.get(index);
+    }
+
+    public List<C> getCards() {
+        return cards;
     }
 }

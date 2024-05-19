@@ -21,15 +21,6 @@ public final class CardMap<C extends Card> extends AbstractCardMap<C, Optional<C
         return cards.entrySet();
     }
 
-    @Override public int size() {
-        int keys = cards.keySet().size();
-        int values = (int) values()
-                .stream()
-                .filter(Optional::isPresent)
-                .count();
-        return keys + values;
-    }
-
     @Override public List<C> getCards() {
         return cards.entrySet().stream()
                 .flatMap(entry -> {

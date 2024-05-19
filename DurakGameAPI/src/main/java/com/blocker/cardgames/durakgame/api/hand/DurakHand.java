@@ -4,6 +4,7 @@ import com.blocker.cardgames.card.bb.standardcard.StandardCard;
 import com.blocker.cardgames.cardcollection.bb.visiblecardcollection.VisibleCardCollection;
 import com.blocker.cardgames.durakgame.api.action.DurakAction;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class DurakHand {
@@ -38,6 +39,10 @@ public final class DurakHand {
 
     public void removeCard(StandardCard card) {
         cards.remove(card);
+    }
+
+    public List<StandardCard> getCards() {
+        return cards.getCards();
     }
 
     public void isRoundLooser(boolean value) {
