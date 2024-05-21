@@ -32,4 +32,8 @@ public final class VisibleCardCollection<C extends Card> extends CardCollection<
     public List<C> getCards() {
         return cards;
     }
+
+    public List<C> subList() {
+        return cards.subList(0, cards.size());
+    }
 }

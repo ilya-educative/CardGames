@@ -1,9 +1,11 @@
 package com.blocker.cardgames.durakgame.api.table;
 
+import com.blocker.cardgames.durakgame.api.hand.DurakHand;
 import com.blocker.cardgames.durakgame.api.round.DurakRound;
-import com.blocker.cardgames.durakgame.api.table.DurakTable;
 
 public interface TableService {
+    DurakHand startFrom(DurakTable durakTable);
+
     void switchFromAttackToWait(DurakTable durakTable);
 
     void setToAttack(DurakTable durakTable, DurakRound durakRound);

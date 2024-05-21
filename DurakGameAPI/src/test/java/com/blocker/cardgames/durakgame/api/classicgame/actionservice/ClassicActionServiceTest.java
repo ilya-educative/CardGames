@@ -3,7 +3,6 @@ package com.blocker.cardgames.durakgame.api.classicgame.actionservice;
 import com.blocker.cardgames.card.bb.standardcard.StandardCard;
 import com.blocker.cardgames.cardcollection.bb.visiblecardcollection.VisibleCardCollection;
 import com.blocker.cardgames.cardmap.bb.cardmap.CardMap;
-import com.blocker.cardgames.durakgame.api.StandardCardUtility;
 import com.blocker.cardgames.durakgame.api.action.DurakAction;
 import com.blocker.cardgames.durakgame.api.board.DurakBoard;
 import com.blocker.cardgames.durakgame.api.config.DurakGameConfig;
@@ -68,31 +67,31 @@ class ClassicActionServiceTest {
                         true,
                         DurakHandState.Attacking,
                         Collections.emptyMap(),
-                        new ArrayList<>(List.of(StandardCardUtility.SIX_OF_SPADES)),
+                        new ArrayList<>(List.of(StandardCard.sixOfSpades())),
                         Collections.emptyList(),
                         List.of(DurakAction.Attack)
                 ),
                 Arguments.of(
                         true,
                         DurakHandState.Attacking,
-                        new HashMap<>(Map.of(StandardCardUtility.SIX_OF_SPADES, Optional.empty())),
-                        new ArrayList<>(List.of(StandardCardUtility.SIX_OF_SPADES)),
+                        new HashMap<>(Map.of(StandardCard.sixOfSpades(), Optional.empty())),
+                        new ArrayList<>(List.of(StandardCard.sixOfSpades())),
                         Collections.emptyList(),
                         List.of(DurakAction.Attack, DurakAction.Pass)
                 ),
                 Arguments.of(
                         true,
                         DurakHandState.Defending,
-                        new HashMap<>(Map.of(StandardCardUtility.SIX_OF_SPADES, Optional.empty())),
-                        new ArrayList<>(List.of(StandardCardUtility.SIX_OF_SPADES)),
+                        new HashMap<>(Map.of(StandardCard.sixOfSpades(), Optional.empty())),
+                        new ArrayList<>(List.of(StandardCard.sixOfSpades())),
                         Collections.emptyList(),
                         List.of(DurakAction.Defend, DurakAction.Take)
                 ),
                 Arguments.of(
                         true,
                         DurakHandState.Defending,
-                        new HashMap<>(Map.of(StandardCardUtility.SIX_OF_SPADES, Optional.empty())),
-                        new ArrayList<>(List.of(StandardCardUtility.SIX_OF_SPADES)),
+                        new HashMap<>(Map.of(StandardCard.sixOfSpades(), Optional.empty())),
+                        new ArrayList<>(List.of(StandardCard.sixOfSpades())),
                         List.of(GameFeature.Transfer),
                         List.of(DurakAction.Defend, DurakAction.Take, DurakAction.Transfer)
                 )

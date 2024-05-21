@@ -5,6 +5,7 @@ import com.blocker.cardgames.card.bb.standardcard.Suit;
 import com.blocker.cardgames.cardcollection.bb.blindcardcollection.BlindCardCollection;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 public final class DurakDeck {
@@ -34,6 +35,10 @@ public final class DurakDeck {
 
     public void shuffle() {
         Collections.shuffle(blindCardCollection.getCards());
+    }
+
+    public List<StandardCard> view() {
+        return blindCardCollection.getCards().subList(0, blindCardCollection.size());
     }
 
     public void trump(Suit trump) {

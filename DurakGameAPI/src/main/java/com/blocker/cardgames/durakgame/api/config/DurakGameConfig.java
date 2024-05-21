@@ -27,6 +27,10 @@ public class DurakGameConfig {
         return new Builder();
     }
 
+    public DeckSize deckSize() {
+        return deckSize;
+    }
+
     public static class Builder {
         private GameType gameType = GameType.Classic;
         private List<GameFeature> gameFeatures;
@@ -89,7 +93,7 @@ public class DurakGameConfig {
         return gameFeatures;
     }
 
-    public int handSize() {
-        return 6;
+    public HandSize handSize() {
+        return handSize;
     }
 }

@@ -3,7 +3,6 @@ package com.blocker.cardgames.durakgame.api.classicgame.boardservice;
 import com.blocker.cardgames.card.bb.standardcard.StandardCard;
 import com.blocker.cardgames.cardcollection.bb.visiblecardcollection.VisibleCardCollection;
 import com.blocker.cardgames.cardmap.bb.cardmap.CardMap;
-import com.blocker.cardgames.durakgame.api.StandardCardUtility;
 import com.blocker.cardgames.durakgame.api.board.DurakBoard;
 import com.blocker.cardgames.durakgame.api.hand.DurakHand;
 import com.blocker.cardgames.durakgame.api.table.DurakTable;
@@ -42,17 +41,17 @@ class ClassicBoardServiceTest {
         target.clearBoard(durakBoard, durakTable);
 
         assertEquals(expectedIsRoundLooser, actualHand.isRoundLooser());
-        assertEquals(expectedCardsInHand, actualHand.getCards());
+        assertEquals(expectedCardsInHand, actualHand.view());
         assertTrue(durakBoard.isEmpty());
     }
 
     public static Stream<Arguments> clearBoardArguments() {
         return Stream.of(
                 Arguments.of(
-                        cardsOnBoard(Map.entry(StandardCardUtility.SIX_OF_SPADES, Optional.of(StandardCardUtility.SEVEN_OF_DIAMONDS))),
+                        cardsOnBoard(Map.entry(StandardCard.sixOfSpades(), Optional.of(StandardCard.sevenOfDiamonds()))),
                         new ArrayList<>(),
                         true,
-                        new ArrayList<>(List.of(StandardCardUtility.SIX_OF_SPADES, StandardCardUtility.SEVEN_OF_DIAMONDS))
+                        new ArrayList<>(List.of(StandardCard.sixOfSpades(), StandardCard.sevenOfDiamonds()))
                 ),
                 Arguments.of(
                         cardsOnBoard(),
@@ -61,19 +60,19 @@ class ClassicBoardServiceTest {
                         new ArrayList<>()
                 ),
                 Arguments.of(
-                        cardsOnBoard(Map.entry(StandardCardUtility.SIX_OF_SPADES, Optional.of(StandardCardUtility.SEVEN_OF_DIAMONDS))),
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS)),
+                        cardsOnBoard(Map.entry(StandardCard.sixOfSpades(), Optional.of(StandardCard.sevenOfDiamonds()))),
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts())),
                         true,
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS, StandardCardUtility.SIX_OF_SPADES, StandardCardUtility.SEVEN_OF_DIAMONDS))
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts(), StandardCard.sixOfSpades(), StandardCard.sevenOfDiamonds()))
                 ),
                 Arguments.of(
                         cardsOnBoard(),
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS)),
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts())),
                         true,
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS))
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts()))
                 ),
                 Arguments.of(
-                        cardsOnBoard(Map.entry(StandardCardUtility.SIX_OF_SPADES, Optional.of(StandardCardUtility.SEVEN_OF_DIAMONDS))),
+                        cardsOnBoard(Map.entry(StandardCard.sixOfSpades(), Optional.of(StandardCard.sevenOfDiamonds()))),
                         new ArrayList<>(),
                         false,
                         new ArrayList<>()
@@ -85,16 +84,16 @@ class ClassicBoardServiceTest {
                         new ArrayList<>()
                 ),
                 Arguments.of(
-                        cardsOnBoard(Map.entry(StandardCardUtility.SIX_OF_SPADES, Optional.of(StandardCardUtility.SEVEN_OF_DIAMONDS))),
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS)),
+                        cardsOnBoard(Map.entry(StandardCard.sixOfSpades(), Optional.of(StandardCard.sevenOfDiamonds()))),
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts())),
                         false,
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS))
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts()))
                 ),
                 Arguments.of(
                         cardsOnBoard(),
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS)),
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts())),
                         false,
-                        new ArrayList<>(List.of(StandardCardUtility.EIGHT_OF_HEARTS))
+                        new ArrayList<>(List.of(StandardCard.eightOfHearts()))
                 )
         );
     }

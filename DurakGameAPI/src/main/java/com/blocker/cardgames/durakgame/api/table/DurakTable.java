@@ -4,6 +4,7 @@ import com.blocker.cardgames.durakgame.api.hand.DurakHand;
 import com.blocker.cardgames.durakgame.api.hand.DurakHandState;
 import com.blocker.cardgames.table.bb.multipleslotstable.MultipleSlotsTable;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,12 +19,12 @@ public class DurakTable {
         return table.availableTypes();
     }
 
-    public DurakHand attacker() {
+    public List<DurakHand> attackers() {
         return getHands()
                 .stream()
                 .filter(hand -> hand.state() == DurakHandState.Attacking)
-                .findFirst()
-                .orElseThrow();
+                .sorted(Comparator.comparingInt(DurakHand::slotId))
+                .toList();
     }
 
     public DurakHand defender() {
@@ -72,5 +73,13 @@ public class DurakTable {
 
     public boolean leave(int slotId) {
         return table.leave(slotId);
+    }
+
+    public DurakHand startedRound() {
+        return getHands()
+                .stream()
+                .filter(DurakHand::startedRound)
+                .findFirst()
+                .orElseThrow();
     }
 }

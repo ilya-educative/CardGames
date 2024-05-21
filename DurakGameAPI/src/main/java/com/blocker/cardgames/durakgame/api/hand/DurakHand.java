@@ -14,6 +14,7 @@ public final class DurakHand {
     private int slotId;
     private DurakAction durakAction;
     private boolean canAct;
+    private boolean startedRound;
 
     public DurakHand(VisibleCardCollection<StandardCard> cards, int slotId) {
         this.cards = cards;
@@ -41,8 +42,8 @@ public final class DurakHand {
         cards.remove(card);
     }
 
-    public List<StandardCard> getCards() {
-        return cards.getCards();
+    public List<StandardCard> view() {
+        return cards.subList();
     }
 
     public void isRoundLooser(boolean value) {
@@ -83,5 +84,13 @@ public final class DurakHand {
 
     public Optional<DurakAction> action() {
         return Optional.ofNullable(durakAction);
+    }
+
+    public boolean startedRound() {
+        return startedRound;
+    }
+
+    public void startedRound(boolean startedRound) {
+        this.startedRound = startedRound;
     }
 }
