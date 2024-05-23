@@ -14,16 +14,8 @@
         <module>CardAPI</module>
         <module>StandardCardBB</module>
 
-        <!--Different Card interactions-->
-        <module>CardInteractionAPI</module>
-        <module>DurakCardInteractionBB</module>
-
         <!--Different Card collections-->
         <module>CardCollectionsBB</module>
-
-        <!--Different Card map collections-->
-        <module>CardMapAPI</module>
-        <module>CardMapBB</module>
 
         <!--Different Table types-->
         <module>TableAPI</module>
