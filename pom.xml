@@ -29,6 +29,7 @@
 
         <!--Different Card games-->
         <module>DurakGameAPI</module>
+        <module>Card</module>
     </modules>
 
     <properties>
