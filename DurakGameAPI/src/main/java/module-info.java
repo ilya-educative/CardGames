@@ -1,8 +1,6 @@
 module DurakGameAPI {
     requires StandardCardBB;
     requires DurakCardInteractionBB;
-    requires BlindCardCollectionBB;
-    requires VisibleCardCollectionBB;
     requires CardMapBB;
     requires MultipleSlotsTableBB;
     requires EmptyRoundBB;

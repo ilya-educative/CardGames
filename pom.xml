@@ -19,9 +19,7 @@
         <module>DurakCardInteractionBB</module>
 
         <!--Different Card collections-->
-        <module>CardCollectionAPI</module>
-        <module>BlindCardCollectionBB</module>
-        <module>VisibleCardCollectionBB</module>
+        <module>CardCollectionsBB</module>
 
         <!--Different Card map collections-->
         <module>CardMapAPI</module>
