@@ -1,6 +1,6 @@
-package com.blocker.cardgames.card.api.cardinteraction;
+package com.blocker.cardgames.cardinteraction;
 
-import com.blocker.cardgames.card.api.card.Card;
+import com.blocker.cardgames.card.Card;
 
 import java.util.function.BiPredicate;
 

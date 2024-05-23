@@ -11,7 +11,6 @@
 
     <modules>
         <!--Different type of Cards-->
-        <module>CardAPI</module>
         <module>StandardCardBB</module>
 
         <!--Different Card collections-->
@@ -30,6 +29,7 @@
         <!--Different Card games-->
         <module>DurakGameAPI</module>
         <module>Card</module>
+        <module>CardInteraction</module>
     </modules>
 
     <properties>

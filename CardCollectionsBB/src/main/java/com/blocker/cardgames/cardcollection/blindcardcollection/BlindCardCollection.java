@@ -1,7 +1,7 @@
-package com.blocker.cardgames.cardcollections.bb.blindcardcollection;
+package com.blocker.cardgames.cardcollection.blindcardcollection;
 
-import com.blocker.cardgames.card.api.card.Card;
-import com.blocker.cardgames.cardcollections.bb.AbstractCardCollection;
+import com.blocker.cardgames.card.Card;
+import com.blocker.cardgames.cardcollection.AbstractCardCollection;
 
 import java.util.Arrays;
 import java.util.LinkedList;

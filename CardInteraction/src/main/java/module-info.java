@@ -1,0 +1,3 @@
+module CardInteraction {
+    requires Card;
+}

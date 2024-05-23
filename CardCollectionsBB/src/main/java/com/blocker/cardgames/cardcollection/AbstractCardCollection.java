@@ -1,6 +1,6 @@
-package com.blocker.cardgames.cardcollections.bb;
+package com.blocker.cardgames.cardcollection;
 
-import com.blocker.cardgames.card.api.card.Card;
+import com.blocker.cardgames.card.Card;
 
 import java.util.Collection;
 import java.util.Collections;
