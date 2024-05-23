@@ -9,8 +9,15 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/BlindCardCollectionBB/pom.xml" />
+        <option value="$PROJECT_DIR$/CardCollectionAPI/pom.xml" />
+        <option value="$PROJECT_DIR$/CardInteractionAPI/pom.xml" />
+        <option value="$PROJECT_DIR$/CardMapAPI/pom.xml" />
+        <option value="$PROJECT_DIR$/CardMapBB/pom.xml" />
+        <option value="$PROJECT_DIR$/DurakCardInteractionBB/pom.xml" />
         <option value="$PROJECT_DIR$/MatchAPI/pom.xml" />
         <option value="$PROJECT_DIR$/TestUnoCardBB/pom.xml" />
+        <option value="$PROJECT_DIR$/VisibleCardCollectionBB/pom.xml" />
       </set>
     </option>
   </component>

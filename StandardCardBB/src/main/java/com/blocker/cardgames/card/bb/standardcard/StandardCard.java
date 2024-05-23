@@ -1,6 +1,6 @@
 package com.blocker.cardgames.card.bb.standardcard;
 
-import com.blocker.cardgames.card.api.Card;
+import com.blocker.cardgames.card.api.card.Card;
 
 import java.util.ArrayList;
 import java.util.List;

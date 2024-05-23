@@ -1,4 +1,4 @@
-package com.blocker.cardgames.card.api;
+package com.blocker.cardgames.card.api.card;
 
 /**
  * Represents a generic Marker interface for Cards.

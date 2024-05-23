@@ -1,6 +1,6 @@
 package com.blocker.cardgames.cardcollections.bb.blindcardcollection;
 
-import com.blocker.cardgames.card.api.Card;
+import com.blocker.cardgames.card.api.card.Card;
 import com.blocker.cardgames.cardcollections.bb.AbstractCardCollection;
 
 import java.util.Arrays;
