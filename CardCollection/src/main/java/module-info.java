@@ -1,4 +1,4 @@
-module CardCollectionsBB {
+module CardCollection {
     requires Card;
 
     exports com.blocker.cardgames.cardcollection.blindcardcollection;

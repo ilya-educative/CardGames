@@ -14,7 +14,7 @@
         <module>StandardCardBB</module>
 
         <!--Different Card collections-->
-        <module>CardCollectionsBB</module>
+        <module>CardCollection</module>
 
         <!--Different Table types-->
         <module>TableAPI</module>
