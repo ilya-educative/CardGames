@@ -11,25 +11,22 @@
 
     <modules>
         <!--Different type of Cards-->
-        <module>StandardCardBB</module>
+        <module>Card</module>
+
+        <!--Different card interactions-->
+        <module>CardInteraction</module>
 
         <!--Different Card collections-->
         <module>CardCollection</module>
 
         <!--Different Table types-->
-        <module>TableAPI</module>
-        <module>SingleSlotTableBB</module>
-        <module>MultipleSlotsTableBB</module>
+        <module>Table</module>
 
         <!--Different Round types-->
-        <module>RoundAPI</module>
-        <module>EmptyRoundBB</module>
-        <module>TurnBasedRoundBB</module>
+        <module>Round</module>
 
         <!--Different Card games-->
         <module>DurakGameAPI</module>
-        <module>Card</module>
-        <module>CardInteraction</module>
     </modules>
 
     <properties>

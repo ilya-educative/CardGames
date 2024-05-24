@@ -25,24 +25,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.blocker.cardgames.table.bb.multipleslotstable</groupId>
-            <artifactId>MultipleSlotsTableBB</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.blocker.cardgames.round.api</groupId>
-            <artifactId>RoundAPI</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.blocker.cardgames.round.bb.emptyround</groupId>
-            <artifactId>EmptyRoundBB</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.10.1</version>

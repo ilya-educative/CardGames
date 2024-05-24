@@ -29,12 +29,16 @@
     <file url="file://$PROJECT_DIR$/MatchAPI/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MultipleSlotsTableBB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MultipleSlotsTableBB/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Round/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Round/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RoundAPI/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RoundAPI/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SingleSlotTableBB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SingleSlotTableBB/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/StandardCardBB/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/StandardCardBB/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Table/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Table/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TableAPI/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TableAPI/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TestUnoCardBB/src/main/java" charset="UTF-8" />
