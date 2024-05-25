@@ -4,6 +4,7 @@ import com.blocker.cardgames.card.Card;
 import com.blocker.cardgames.cardcollection.AbstractCardCollection;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public class BlindCardCollection<C extends Card> extends AbstractCardCollection<
         return Optional.of(cards.removeFirst());
     }
 
-    public void shuffle() {
-        shuffle(cards);
+    @Override public void shuffle() {
+        Collections.shuffle(cards);
     }
 }

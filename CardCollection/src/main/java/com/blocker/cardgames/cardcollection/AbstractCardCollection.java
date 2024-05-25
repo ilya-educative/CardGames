@@ -2,8 +2,6 @@ package com.blocker.cardgames.cardcollection;
 
 import com.blocker.cardgames.card.Card;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractCardCollection<C extends Card> {
@@ -16,9 +14,6 @@ public abstract class AbstractCardCollection<C extends Card> {
     }
     public final boolean hasCards() {
         return size() > 0;
-    }
-    protected final void shuffle(List<C> cards) {
-        Collections.shuffle(cards);
     }
 
     protected Optional<C> getFromTop() throws UnsupportedOperationException {
@@ -38,6 +33,10 @@ public abstract class AbstractCardCollection<C extends Card> {
         throw new UnsupportedOperationException();
     }
     protected boolean insertAtIndex(C card, int index) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException();
+    }
+
+    protected void shuffle() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 }
