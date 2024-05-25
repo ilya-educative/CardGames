@@ -6,22 +6,12 @@ import com.blocker.cardgames.cardcollection.AbstractCardCollection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class VisibleCardCollection<C extends Card> extends AbstractCardCollection<C> {
     private final List<C> cards;
 
     public VisibleCardCollection(C[] cards) {
-        super(true);
-        this.cards = new ArrayList<>(Arrays.asList(cards));
-    }
-
-    public VisibleCardCollection(boolean allowDuplicates) {
-        super(allowDuplicates);
-        this.cards = new ArrayList<>();
-    }
-
-    public VisibleCardCollection(C[] cards, boolean allowDuplicates) {
-        super(allowDuplicates);
         this.cards = new ArrayList<>(Arrays.asList(cards));
     }
 
@@ -29,15 +19,13 @@ public class VisibleCardCollection<C extends Card> extends AbstractCardCollectio
         return cards.size();
     }
 
-    public C getByIndex(int index) {
-        return cards.get(index);
+    @Override public Optional<C> getByIndex(int index) {
+        if (isEmpty()) return Optional.empty();
+        return Optional.of(cards.get(index));
     }
 
-    public boolean insertAtIndex(int index, C card) {
-        if (isDuplicatesAllowed(card, cards)) {
-            cards.set(index, card);
-            return true;
-        }
-        return false;
+    @Override public boolean insertAtIndex(C card, int index) {
+        cards.set(index, card);
+        return true;
     }
 }
