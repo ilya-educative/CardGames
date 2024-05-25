@@ -1,8 +1,6 @@
 package com.blocker.cardgames.card.standardcard;
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public enum Suit {
     Hearts("♥", SuitColor.Red), Diamonds("♦", SuitColor.Red),
@@ -24,27 +22,12 @@ public enum Suit {
         return color;
     }
 
-    public static List<Suit> allSuits() {
-        return List.of(values());
-    }
-
     public static Suit randomSuit() {
         Random random = new Random();
-        List<Suit> allSuits = allSuits();
-        return allSuits.get(random.nextInt(allSuits.size()));
+        Suit[] suits = values();
+        return suits[random.nextInt(suits.length)];
     }
 
-    public static List<Suit> redSuits() {
-        return suitsByColor(SuitColor.Red);
-    }
-
-    public static List<Suit> blackSuits() {
-        return suitsByColor(SuitColor.Black);
-    }
-
-    private static List<Suit> suitsByColor(SuitColor color) {
-        return Stream.of(values())
-                .filter(suit -> suit.color == color)
-                .toList();
-    }
+    public static final Suit[] redSuits = new Suit[]{Hearts, Diamonds};
+    public static final Suit[] blackSuits = new Suit[]{Spades, Clubs};
 }

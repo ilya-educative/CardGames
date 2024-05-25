@@ -1,7 +1,5 @@
 package com.blocker.cardgames.card.standardcard;
 
-import java.util.List;
-
 public enum Rank {
     Two("2"), Three("3"), Four("4"), Five("5"),
     Six("6"), Seven("7"), Eight("8"), Nine("9"), Ten("10"),
@@ -14,19 +12,11 @@ public enum Rank {
         this.symbol = symbol;
     }
 
-    public static List<Rank> allRanksFromTwo() {
-        return List.of(Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace);
-    }
-
-    public static List<Rank> allRanksFromSix() {
-        return List.of(Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace);
-    }
-
-    public static List<Rank> allRanksFromNine() {
-        return List.of(Nine, Ten, Jack, Queen, King, Ace);
-    }
-
     public String symbol() {
         return symbol;
     }
+
+    public static final Rank[] valuesFromTwo = new Rank[]{Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace};
+    public static final Rank[] valuesFromSix = new Rank[]{Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace};
+    public static final Rank[] valuesFromNine = new Rank[]{Nine, Ten, Jack, Queen, King, Ace};
 }

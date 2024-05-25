@@ -2,8 +2,6 @@ package com.blocker.cardgames.card.standardcard;
 
 import com.blocker.cardgames.card.Card;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public final class StandardCard extends Card {
@@ -24,11 +22,12 @@ public final class StandardCard extends Card {
     }
 
     @Override public String toString() {
-        final String color = switch (suit.color()) {
-            case Red -> "\u001B[31m";
-            case Black -> "\u001B[30m";
-        };
-        return color + suit.symbol() + " " + rank.symbol() + "\u001B[0m";
+//        final String color = switch (suit.color()) {
+//            case Red -> "\u001B[31m";
+//            case Black -> "\u001B[30m";
+//        };
+//        return color + suit.symbol() + " " + rank.symbol() + "\u001B[0m";
+        return "[%s of %s]".formatted(rank.symbol(), suit.name());
     }
 
     @Override public boolean equals(Object o) {
@@ -44,6 +43,10 @@ public final class StandardCard extends Card {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public static CardsBuilder cardsBuilder() {
+        return new CardsBuilder();
     }
 
     public static final class Builder {
@@ -64,290 +67,111 @@ public final class StandardCard extends Card {
         }
 
         public StandardCard build() {
+            Objects.requireNonNull(rank);
+            Objects.requireNonNull(suit);
             return new StandardCard(rank, suit);
         }
     }
 
-    public static ListBuilder listBuilder() {
-        return new ListBuilder();
-    }
+    public static final class CardsBuilder {
+        private boolean withJokers = false;
+        private CardSize cardSize = CardSize.Medium;
 
-    public static final class ListBuilder {
-        private final List<StandardCard> cards;
-
-        private ListBuilder() {
-            this.cards = new ArrayList<>();
+        private CardsBuilder() {
         }
 
-        public ListBuilder with24Cards() {
-            List<StandardCard> with36Cards = Suit.allSuits()
-                    .stream()
-                    .flatMap(suit -> Rank.allRanksFromNine()
-                            .stream()
-                            .map(rank -> builder()
-                                    .rank(rank)
-                                    .suit(suit)
-                                    .build())
-                    )
-                    .toList();
-            cards.addAll(with36Cards);
+        public CardsBuilder withSize(CardSize cardSize) {
+            this.cardSize = cardSize;
             return this;
         }
 
-        public ListBuilder with36Cards() {
-            List<StandardCard> with36Cards = Suit.allSuits()
-                    .stream()
-                    .flatMap(suit -> Rank.allRanksFromSix()
-                            .stream()
-                            .map(rank -> builder()
-                                    .rank(rank)
-                                    .suit(suit)
-                                    .build())
-                    )
-                    .toList();
-            cards.addAll(with36Cards);
+        public CardsBuilder withJokers() {
+            withJokers = true;
             return this;
         }
 
-        public ListBuilder with52Cards() {
-            List<StandardCard> with36Cards = Suit.allSuits()
-                    .stream()
-                    .flatMap(suit -> Rank.allRanksFromTwo()
-                            .stream()
-                            .map(rank -> builder()
-                                    .rank(rank)
-                                    .suit(suit)
-                                    .build())
-                    )
-                    .toList();
-            cards.addAll(with36Cards);
-            return this;
-        }
+        public StandardCard[] build() {
+            int length = this.cardSize.length() + (withJokers ? 2 : 0);
+            StandardCard[] cards = new StandardCard[length];
+            int index = 0;
 
-        public ListBuilder withJokers() {
-            StandardCard redJoker = builder()
-                    .rank(Rank.Joker)
-                    .suit(Suit.Hearts)
-                    .build();
-            StandardCard blackJoker = builder()
-                    .rank(Rank.Joker)
-                    .suit(Suit.Spades)
-                    .build();
-            cards.add(redJoker);
-            cards.add(blackJoker);
-            return this;
-        }
+            Rank[] ranks = switch (this.cardSize) {
+                case Small -> Rank.valuesFromNine;
+                case Medium -> Rank.valuesFromSix;
+                case Full -> Rank.valuesFromTwo;
+            };
 
-        public List<StandardCard> build() {
+            for (Suit suit : Suit.values()) {
+                for (Rank rank : ranks) {
+                    cards[index++] = builder().rank(rank).suit(suit).build();
+                }
+            }
+
+            if (withJokers) {
+                cards[index++] = redJoker;
+                cards[index] = blackJoker;
+            }
+
             return cards;
         }
     }
 
-    public static StandardCard twoOfHearts() {
-        return builder().rank(Rank.Two).suit(Suit.Hearts).build();
-    }
+    public static final StandardCard twoOfHearts = builder().rank(Rank.Two).suit(Suit.Hearts).build();
+    public static final StandardCard threeOfHearts = builder().rank(Rank.Three).suit(Suit.Hearts).build();
+    public static final StandardCard fourOfHearts = builder().rank(Rank.Four).suit(Suit.Hearts).build();
+    public static final StandardCard fiveOfHearts = builder().rank(Rank.Five).suit(Suit.Hearts).build();
+    public static final StandardCard sixOfHearts = builder().rank(Rank.Six).suit(Suit.Hearts).build();
+    public static final StandardCard sevenOfHearts = builder().rank(Rank.Seven).suit(Suit.Hearts).build();
+    public static final StandardCard eightOfHearts = builder().rank(Rank.Eight).suit(Suit.Hearts).build();
+    public static final StandardCard nineOfHearts = builder().rank(Rank.Nine).suit(Suit.Hearts).build();
+    public static final StandardCard tenOfHearts = builder().rank(Rank.Ten).suit(Suit.Hearts).build();
+    public static final StandardCard jackOfHearts = builder().rank(Rank.Jack).suit(Suit.Hearts).build();
+    public static final StandardCard queenOfHearts = builder().rank(Rank.Queen).suit(Suit.Hearts).build();
+    public static final StandardCard kingOfHearts = builder().rank(Rank.King).suit(Suit.Hearts).build();
+    public static final StandardCard aceOfHearts = builder().rank(Rank.Ace).suit(Suit.Hearts).build();
 
-    public static StandardCard threeOfHearts() {
-        return builder().rank(Rank.Three).suit(Suit.Hearts).build();
-    }
+    public static final StandardCard twoOfDiamonds = builder().rank(Rank.Two).suit(Suit.Diamonds).build();
+    public static final StandardCard threeOfDiamonds = builder().rank(Rank.Three).suit(Suit.Diamonds).build();
+    public static final StandardCard fourOfDiamonds = builder().rank(Rank.Four).suit(Suit.Diamonds).build();
+    public static final StandardCard fiveOfDiamonds = builder().rank(Rank.Five).suit(Suit.Diamonds).build();
+    public static final StandardCard sixOfDiamonds = builder().rank(Rank.Six).suit(Suit.Diamonds).build();
+    public static final StandardCard sevenOfDiamonds = builder().rank(Rank.Seven).suit(Suit.Diamonds).build();
+    public static final StandardCard eightOfDiamonds = builder().rank(Rank.Eight).suit(Suit.Diamonds).build();
+    public static final StandardCard nineOfDiamonds = builder().rank(Rank.Nine).suit(Suit.Diamonds).build();
+    public static final StandardCard tenOfDiamonds = builder().rank(Rank.Ten).suit(Suit.Diamonds).build();
+    public static final StandardCard jackOfDiamonds = builder().rank(Rank.Jack).suit(Suit.Diamonds).build();
+    public static final StandardCard queenOfDiamonds = builder().rank(Rank.Queen).suit(Suit.Diamonds).build();
+    public static final StandardCard kingOfDiamonds = builder().rank(Rank.King).suit(Suit.Diamonds).build();
+    public static final StandardCard aceOfDiamonds = builder().rank(Rank.Ace).suit(Suit.Diamonds).build();
 
-    public static StandardCard fourOfHearts() {
-        return builder().rank(Rank.Four).suit(Suit.Hearts).build();
-    }
+    public static final StandardCard twoOfClubs = builder().rank(Rank.Two).suit(Suit.Clubs).build();
+    public static final StandardCard threeOfClubs = builder().rank(Rank.Three).suit(Suit.Clubs).build();
+    public static final StandardCard fourOfClubs = builder().rank(Rank.Four).suit(Suit.Clubs).build();
+    public static final StandardCard fiveOfClubs = builder().rank(Rank.Five).suit(Suit.Clubs).build();
+    public static final StandardCard sixOfClubs = builder().rank(Rank.Six).suit(Suit.Clubs).build();
+    public static final StandardCard sevenOfClubs = builder().rank(Rank.Seven).suit(Suit.Clubs).build();
+    public static final StandardCard eightOfClubs = builder().rank(Rank.Eight).suit(Suit.Clubs).build();
+    public static final StandardCard nineOfClubs = builder().rank(Rank.Nine).suit(Suit.Clubs).build();
+    public static final StandardCard tenOfClubs = builder().rank(Rank.Ten).suit(Suit.Clubs).build();
+    public static final StandardCard jackOfClubs = builder().rank(Rank.Jack).suit(Suit.Clubs).build();
+    public static final StandardCard queenOfClubs = builder().rank(Rank.Queen).suit(Suit.Clubs).build();
+    public static final StandardCard kingOfClubs = builder().rank(Rank.King).suit(Suit.Clubs).build();
+    public static final StandardCard aceOfClubs = builder().rank(Rank.Ace).suit(Suit.Clubs).build();
 
-    public static StandardCard fiveOfHearts() {
-        return builder().rank(Rank.Five).suit(Suit.Hearts).build();
-    }
+    public static final StandardCard twoOfSpades = builder().rank(Rank.Two).suit(Suit.Spades).build();
+    public static final StandardCard threeOfSpades = builder().rank(Rank.Three).suit(Suit.Spades).build();
+    public static final StandardCard fourOfSpades = builder().rank(Rank.Four).suit(Suit.Spades).build();
+    public static final StandardCard fiveOfSpades = builder().rank(Rank.Five).suit(Suit.Spades).build();
+    public static final StandardCard sixOfSpades = builder().rank(Rank.Six).suit(Suit.Spades).build();
+    public static final StandardCard sevenOfSpades = builder().rank(Rank.Seven).suit(Suit.Spades).build();
+    public static final StandardCard eightOfSpades = builder().rank(Rank.Eight).suit(Suit.Spades).build();
+    public static final StandardCard nineOfSpades = builder().rank(Rank.Nine).suit(Suit.Spades).build();
+    public static final StandardCard tenOfSpades = builder().rank(Rank.Ten).suit(Suit.Spades).build();
+    public static final StandardCard jackOfSpades = builder().rank(Rank.Jack).suit(Suit.Spades).build();
+    public static final StandardCard queenOfSpades = builder().rank(Rank.Queen).suit(Suit.Spades).build();
+    public static final StandardCard kingOfSpades = builder().rank(Rank.King).suit(Suit.Spades).build();
+    public static final StandardCard aceOfSpades = builder().rank(Rank.Ace).suit(Suit.Spades).build();
 
-    public static StandardCard sixOfHearts() {
-        return builder().rank(Rank.Six).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard sevenOfHearts() {
-        return builder().rank(Rank.Seven).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard eightOfHearts() {
-        return builder().rank(Rank.Eight).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard nineOfHearts() {
-        return builder().rank(Rank.Nine).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard tenOfHearts() {
-        return builder().rank(Rank.Ten).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard jackOfHearts() {
-        return builder().rank(Rank.Jack).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard queenOfHearts() {
-        return builder().rank(Rank.Queen).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard kingOfHearts() {
-        return builder().rank(Rank.King).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard aceOfHearts() {
-        return builder().rank(Rank.Ace).suit(Suit.Hearts).build();
-    }
-
-    public static StandardCard twoOfDiamonds() {
-        return builder().rank(Rank.Two).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard threeOfDiamonds() {
-        return builder().rank(Rank.Three).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard fourOfDiamonds() {
-        return builder().rank(Rank.Four).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard fiveOfDiamonds() {
-        return builder().rank(Rank.Five).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard sixOfDiamonds() {
-        return builder().rank(Rank.Six).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard sevenOfDiamonds() {
-        return builder().rank(Rank.Seven).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard eightOfDiamonds() {
-        return builder().rank(Rank.Eight).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard nineOfDiamonds() {
-        return builder().rank(Rank.Nine).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard tenOfDiamonds() {
-        return builder().rank(Rank.Ten).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard jackOfDiamonds() {
-        return builder().rank(Rank.Jack).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard queenOfDiamonds() {
-        return builder().rank(Rank.Queen).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard kingOfDiamonds() {
-        return builder().rank(Rank.King).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard aceOfDiamonds() {
-        return builder().rank(Rank.Ace).suit(Suit.Diamonds).build();
-    }
-
-    public static StandardCard twoOfClubs() {
-        return builder().rank(Rank.Two).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard threeOfClubs() {
-        return builder().rank(Rank.Three).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard fourOfClubs() {
-        return builder().rank(Rank.Four).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard fiveOfClubs() {
-        return builder().rank(Rank.Five).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard sixOfClubs() {
-        return builder().rank(Rank.Six).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard sevenOfClubs() {
-        return builder().rank(Rank.Seven).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard eightOfClubs() {
-        return builder().rank(Rank.Eight).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard nineOfClubs() {
-        return builder().rank(Rank.Nine).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard tenOfClubs() {
-        return builder().rank(Rank.Ten).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard jackOfClubs() {
-        return builder().rank(Rank.Jack).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard queenOfClubs() {
-        return builder().rank(Rank.Queen).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard kingOfClubs() {
-        return builder().rank(Rank.King).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard aceOfClubs() {
-        return builder().rank(Rank.Ace).suit(Suit.Clubs).build();
-    }
-
-    public static StandardCard twoOfSpades() {
-        return builder().rank(Rank.Two).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard threeOfSpades() {
-        return builder().rank(Rank.Three).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard fourOfSpades() {
-        return builder().rank(Rank.Four).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard fiveOfSpades() {
-        return builder().rank(Rank.Five).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard sixOfSpades() {
-        return builder().rank(Rank.Six).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard sevenOfSpades() {
-        return builder().rank(Rank.Seven).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard eightOfSpades() {
-        return builder().rank(Rank.Eight).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard nineOfSpades() {
-        return builder().rank(Rank.Nine).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard tenOfSpades() {
-        return builder().rank(Rank.Ten).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard jackOfSpades() {
-        return builder().rank(Rank.Jack).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard queenOfSpades() {
-        return builder().rank(Rank.Queen).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard kingOfSpades() {
-        return builder().rank(Rank.King).suit(Suit.Spades).build();
-    }
-
-    public static StandardCard aceOfSpades() {
-        return builder().rank(Rank.Ace).suit(Suit.Spades).build();
-    }
+    public static final StandardCard redJoker = builder().rank(Rank.Joker).suit(Suit.Hearts).build();
+    public static final StandardCard blackJoker = builder().rank(Rank.Joker).suit(Suit.Spades).build();
 }
