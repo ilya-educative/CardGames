@@ -34,20 +34,20 @@ class ClassicDurakGameCardInteractionTest {
 
     private static Stream<Arguments> argumentsForDurakCardInteraction() {
         return Stream.of(
-                Arguments.of(Hearts, sixOfDiamonds(), sixOfClubs(), false),
-                Arguments.of(Hearts, sixOfClubs(), sixOfClubs(), false),
-                Arguments.of(Hearts, sixOfHearts(), sixOfClubs(), true),
-                Arguments.of(Hearts, sixOfClubs(), sixOfHearts(), false),
+                Arguments.of(Hearts, sixOfDiamonds, sixOfClubs, false),
+                Arguments.of(Hearts, sixOfClubs, sixOfClubs, false),
+                Arguments.of(Hearts, sixOfHearts, sixOfClubs, true),
+                Arguments.of(Hearts, sixOfClubs, sixOfHearts, false),
 
-                Arguments.of(Hearts, fiveOfDiamonds(), sixOfClubs(), false),
-                Arguments.of(Hearts, fiveOfClubs(), sixOfClubs(), false),
-                Arguments.of(Hearts, fiveOfHearts(), sixOfClubs(), true),
-                Arguments.of(Hearts, fiveOfClubs(), sixOfHearts(), false),
+                Arguments.of(Hearts, fiveOfDiamonds, sixOfClubs, false),
+                Arguments.of(Hearts, fiveOfClubs, sixOfClubs, false),
+                Arguments.of(Hearts, fiveOfHearts, sixOfClubs, true),
+                Arguments.of(Hearts, fiveOfClubs, sixOfHearts, false),
 
-                Arguments.of(Hearts, sevenOfDiamonds(), sixOfClubs(), false),
-                Arguments.of(Hearts, sevenOfClubs(), sixOfClubs(), true),
-                Arguments.of(Hearts, sevenOfHearts(), sixOfClubs(), true),
-                Arguments.of(Hearts, sevenOfClubs(), sixOfHearts(), false)
+                Arguments.of(Hearts, sevenOfDiamonds, sixOfClubs, false),
+                Arguments.of(Hearts, sevenOfClubs, sixOfClubs, true),
+                Arguments.of(Hearts, sevenOfHearts, sixOfClubs, true),
+                Arguments.of(Hearts, sevenOfClubs, sixOfHearts, false)
         );
     }
 }
