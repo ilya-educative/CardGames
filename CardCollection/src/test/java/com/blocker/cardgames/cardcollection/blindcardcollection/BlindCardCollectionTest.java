@@ -21,18 +21,18 @@ class BlindCardCollectionTest {
         BlindCardCollection<MockCard> cardCollection = new BlindCardCollection<>(cards);
 
         MockCard expected = MockCard.builder().value(1).build();
-        Optional<MockCard> actual = cardCollection.getFromTop();
+        Optional<MockCard> actual = cardCollection.removeFromTop();
         assertEquals(expected, actual.orElseThrow());
 
         expected = MockCard.builder().value(2).build();
-        actual = cardCollection.getFromTop();
+        actual = cardCollection.removeFromTop();
         assertEquals(expected, actual.orElseThrow());
 
         expected = MockCard.builder().value(3).build();
-        actual = cardCollection.getFromTop();
+        actual = cardCollection.removeFromTop();
         assertEquals(expected, actual.orElseThrow());
 
-        actual = cardCollection.getFromTop();
+        actual = cardCollection.removeFromTop();
         assertTrue(actual.isEmpty());
     }
 
@@ -57,7 +57,7 @@ class BlindCardCollectionTest {
         MockCard[] actual = new MockCard[10];
         int index = 0;
         while (cardCollection.hasCards()) {
-            actual[index++] = cardCollection.getFromTop().orElseThrow();
+            actual[index++] = cardCollection.removeFromTop().orElseThrow();
         }
 
         assertEquals(expected.length, actual.length);

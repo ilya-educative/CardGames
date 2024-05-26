@@ -19,13 +19,17 @@ public class VisibleCardCollection<C extends Card> extends AbstractCardCollectio
         return cards.size();
     }
 
-    @Override public Optional<C> getByIndex(int index) {
-        if (isEmpty()) return Optional.empty();
+    @Override protected Optional<C> getByIndex(int index) {
+        if (isEmpty() || index < 0 || index >= size()) return Optional.empty();
         return Optional.of(cards.get(index));
     }
 
-    @Override public boolean insertAtIndex(C card, int index) {
-        cards.set(index, card);
-        return true;
+    @Override protected void insertAtTop(C card) {
+        cards.add(card);
+    }
+
+    @Override public Optional<C> removeByIndex(int index) {
+        if (isEmpty() || index < 0 || index >= size()) return Optional.empty();
+        return Optional.of(cards.remove(index));
     }
 }

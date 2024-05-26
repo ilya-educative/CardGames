@@ -19,7 +19,7 @@ public class BlindCardCollection<C extends Card> extends AbstractCardCollection<
         return cards.size();
     }
 
-    @Override public Optional<C> getFromTop() {
+    @Override public Optional<C> removeFromTop() {
         if (isEmpty()) return Optional.empty();
         return Optional.of(cards.removeFirst());
     }

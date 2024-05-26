@@ -16,23 +16,18 @@ public abstract class AbstractCardCollection<C extends Card> {
         return size() > 0;
     }
 
-    protected Optional<C> getFromTop() throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
-    }
-    protected Optional<C> getFromBottom() throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
-    }
     protected Optional<C> getByIndex(int index) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 
-    protected boolean insertAtTop(C card) throws UnsupportedOperationException {
+    protected void insertAtTop(C card) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
-    protected boolean insertAtBottom(C card) throws UnsupportedOperationException {
+
+    protected Optional<C> removeFromTop() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
-    protected boolean insertAtIndex(C card, int index) throws UnsupportedOperationException {
+    protected Optional<C> removeByIndex(int index) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 
