@@ -1,14 +1,14 @@
 package com.blocker.cardgames.cardcollection.blindcardcollection;
 
 import com.blocker.cardgames.card.Card;
-import com.blocker.cardgames.cardcollection.AbstractCardCollection;
+import com.blocker.cardgames.cardcollection.CardCollection;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Optional;
 
-public class BlindCardCollection<C extends Card> extends AbstractCardCollection<C> {
+public class BlindCardCollection<C extends Card> extends CardCollection<C> {
     private final LinkedList<C> cards;
 
     public BlindCardCollection(C[] cards) {

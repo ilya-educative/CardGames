@@ -4,8 +4,8 @@ import com.blocker.cardgames.card.Card;
 
 import java.util.Optional;
 
-public abstract class AbstractCardCollection<C extends Card> {
-    protected AbstractCardCollection() {
+public abstract class CardCollection<C extends Card> {
+    protected CardCollection() {
     }
 
     public abstract int size();

@@ -3,7 +3,7 @@ package com.blocker.cardgames.round;
 /**
  * Abstract class representing a round.
  */
-public abstract class AbstractRound {
+public abstract class Round {
     /**
      * The unique identifier of the round.
      */
@@ -14,7 +14,7 @@ public abstract class AbstractRound {
     /**
      * Constructs a new round and assigns it a unique identifier.
      */
-    protected AbstractRound() {
+    protected Round() {
         id = RoundID.id;
         RoundID.increment();
     }

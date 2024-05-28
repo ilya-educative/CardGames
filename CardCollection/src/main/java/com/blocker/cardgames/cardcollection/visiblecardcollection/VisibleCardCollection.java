@@ -1,14 +1,14 @@
 package com.blocker.cardgames.cardcollection.visiblecardcollection;
 
 import com.blocker.cardgames.card.Card;
-import com.blocker.cardgames.cardcollection.AbstractCardCollection;
+import com.blocker.cardgames.cardcollection.CardCollection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class VisibleCardCollection<C extends Card> extends AbstractCardCollection<C> {
+public class VisibleCardCollection<C extends Card> extends CardCollection<C> {
     private final List<C> cards;
 
     public VisibleCardCollection(C[] cards) {
