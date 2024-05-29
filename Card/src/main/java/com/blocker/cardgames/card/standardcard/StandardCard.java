@@ -4,6 +4,9 @@ import com.blocker.cardgames.card.Card;
 
 import java.util.Objects;
 
+/**
+ * A standard implementation of the {@link Card} class representing a playing card with a rank and suit.
+ */
 public final class StandardCard extends Card {
     private final Rank rank;
     private final Suit suit;
@@ -41,10 +44,20 @@ public final class StandardCard extends Card {
         return Objects.hash(rank, suit);
     }
 
+    /**
+     * Returns a new {@link Builder} for creating {@link StandardCard} instances.
+     *
+     * @return a new builder
+     */
     public static Builder builder() {
         return new Builder();
     }
 
+    /**
+     * Returns a new {@link CardsBuilder} for creating arrays of {@link StandardCard} instances.
+     *
+     * @return a new cards builder
+     */
     public static CardsBuilder cardsBuilder() {
         return new CardsBuilder();
     }
