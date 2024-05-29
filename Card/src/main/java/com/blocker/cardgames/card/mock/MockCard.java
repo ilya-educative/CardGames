@@ -4,6 +4,21 @@ import com.blocker.cardgames.card.Card;
 
 import java.util.Objects;
 
+/**
+ * A mock implementation of the {@link Card} class for testing purposes.
+ *
+ * <p>This class is designed to facilitate testing by providing a simple
+ * implementation of a card with a specific value. It is not intended for
+ * production use.</p>
+ *
+ * <p>Example usage:</p>
+ * <pre>
+ * {@code
+ * MockCard card = MockCard.builder().value(5).build();
+ * System.out.println(card); // Outputs: 5
+ * }
+ * </pre>
+ */
 public final class MockCard extends Card {
     private final int value;
 
