@@ -27,6 +27,7 @@ public abstract class CardCollection<C extends Card> {
     protected Optional<C> removeFromTop() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
     protected Optional<C> removeByIndex(int index) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
