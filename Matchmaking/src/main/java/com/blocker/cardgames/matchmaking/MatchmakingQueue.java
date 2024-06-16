@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.UUID;
 
 public interface MatchmakingQueue<K extends Enum<K>, V extends Joiner> {
-    UUID join(K k, V v, MatchConfiguration matchConfiguration);
+    UUID join(K k, V v);
+
+    void leave(V v);
 
     void leave(V v, UUID uuid);
 

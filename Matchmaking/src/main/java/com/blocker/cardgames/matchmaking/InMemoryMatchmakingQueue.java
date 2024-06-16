@@ -1,11 +1,16 @@
 package com.blocker.cardgames.matchmaking;
 
+import com.blocker.cardgames.matchmaking.exception.ExceptionMessage;
+import com.blocker.cardgames.matchmaking.exception.JoinerNotInMatchmakingQueueException;
+import com.blocker.cardgames.matchmaking.exception.MultipleMatchmakingException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 public class InMemoryMatchmakingQueue<K extends Enum<K>, V extends Joiner> implements MatchmakingQueue<K, V> {
@@ -17,12 +22,42 @@ public class InMemoryMatchmakingQueue<K extends Enum<K>, V extends Joiner> imple
         }
     }
 
-    @Override public synchronized UUID join(K k, V v, MatchConfiguration matchConfiguration) {
-        Match<V> match = map.get(k).stream()
+    @Override public synchronized UUID join(K k, V v) throws MultipleMatchmakingException {
+        if (map.values().stream()
+                .flatMap(Collection::stream)
+                .anyMatch(match -> match.contains(v))) {
+            throw new MultipleMatchmakingException(
+                    ExceptionMessage.MULTIPLE_MATCHMAKING_s.formatted(v.uuid().toString())
+            );
+        }
+
+        Optional<Match<V>> optionalMatch = map.get(k).stream()
                 .filter(Match::hasSlots)
-                .findFirst()
-                .orElse(new Match<>(matchConfiguration.size));
+                .findFirst();
+
+        Match<V> match;
+        if (optionalMatch.isPresent()) {
+            match = optionalMatch.get();
+        } else {
+            match = new Match<>();
+            map.get(k).add(match);
+        }
         return match.join(v);
+    }
+
+    @Override public synchronized void leave(V v) {
+        Optional<Match<V>> optionalMatch = map.values().stream()
+                .flatMap(Collection::stream)
+                .filter(match -> match.contains(v))
+                .findFirst();
+
+        if (optionalMatch.isPresent()) {
+            optionalMatch.get().leave(v);
+        } else {
+            throw new JoinerNotInMatchmakingQueueException(
+                    ExceptionMessage.JOINER_NOT_IN_MATCHMAKING_QUEUE_s.formatted(v.uuid().toString())
+            );
+        }
     }
 
     @Override public synchronized void leave(V v, UUID uuid) {
@@ -30,10 +65,7 @@ public class InMemoryMatchmakingQueue<K extends Enum<K>, V extends Joiner> imple
                 .flatMap(Collection::stream)
                 .filter(match -> uuid.equals(match.uuid()))
                 .findFirst()
-                .ifPresentOrElse(match -> match.leave(v),
-                        () -> {
-                            throw new IllegalArgumentException("");
-                        });
+                .ifPresent(match -> match.leave(v));
     }
 
     @Override public void confirm(V v) {
