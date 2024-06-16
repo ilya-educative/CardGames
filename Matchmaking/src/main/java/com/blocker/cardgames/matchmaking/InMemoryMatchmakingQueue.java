@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 public class InMemoryMatchmakingQueue<K extends Enum<K>, V extends Joiner> implements MatchmakingQueue<K, V> {
     private final Map<K, List<Match<V>>> map = new HashMap<>();
@@ -22,7 +21,8 @@ public class InMemoryMatchmakingQueue<K extends Enum<K>, V extends Joiner> imple
         }
     }
 
-    @Override public synchronized UUID join(K k, V v) throws MultipleMatchmakingException {
+    @Override public synchronized Match<V> join(K k, V v) throws MultipleMatchmakingException {
+        resetConfirmation(v);
         if (map.values().stream()
                 .flatMap(Collection::stream)
                 .anyMatch(match -> match.contains(v))) {
@@ -58,14 +58,6 @@ public class InMemoryMatchmakingQueue<K extends Enum<K>, V extends Joiner> imple
                     ExceptionMessage.JOINER_NOT_IN_MATCHMAKING_QUEUE_s.formatted(v.uuid().toString())
             );
         }
-    }
-
-    @Override public synchronized void leave(V v, UUID uuid) {
-        map.values().stream()
-                .flatMap(Collection::stream)
-                .filter(match -> uuid.equals(match.uuid()))
-                .findFirst()
-                .ifPresent(match -> match.leave(v));
     }
 
     @Override public void confirm(V v) {

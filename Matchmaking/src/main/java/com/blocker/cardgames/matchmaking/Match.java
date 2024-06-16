@@ -26,14 +26,14 @@ public class Match<T extends Joiner> {
         return queue.size() < size;
     }
 
-    public UUID join(T t) throws AlreadyInMatchmakingQueueException, FullMatchException {
+    public Match<T> join(T t) throws AlreadyInMatchmakingQueueException, FullMatchException {
         if (queue.contains(t)) throw new AlreadyInMatchmakingQueueException(
                 ExceptionMessage.ALREADY_IN_MATCHMAKING_QUEUE_s.formatted(t.uuid().toString()));
         if (!hasSlots()) throw new FullMatchException(
                 ExceptionMessage.FULL_MATCH_s_s.formatted(uuid.toString(), t.uuid().toString())
         );
         queue.add(t);
-        return uuid;
+        return this;
     }
 
     public void leave(T t) throws JoinerNotInMatchmakingQueueException {
