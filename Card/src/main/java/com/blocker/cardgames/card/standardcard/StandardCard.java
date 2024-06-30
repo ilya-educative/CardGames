@@ -6,6 +6,21 @@ import java.util.Objects;
 
 /**
  * A standard implementation of the {@link Card} class representing a playing card with a rank and suit.
+ *
+ * <p>This class is representation of standard card that is used in most of commonly known games.</p>
+ *
+ * <p>Example usage:</p>
+ * <pre>
+ * {@code
+ * StandardCard card = StandardCard.builder().rank(Rank.Two).suit(Suit.Hearts).build();
+ * }
+ * </pre>
+ * <p>But it is highly recommended to <b>not</b> invent your cards instead use predefined cards:</p>
+ * <pre>
+ * {@code
+ * StandardCard card = StandardCard.twoOfHearts;
+ * }
+ * </pre>
  */
 public final class StandardCard extends Card {
     private final Rank rank;
