@@ -20,7 +20,6 @@
         <option value="$PROJECT_DIR$/MatchAPI/pom.xml" />
         <option value="$PROJECT_DIR$/MultipleSlotsTableBB/pom.xml" />
         <option value="$PROJECT_DIR$/RoundAPI/pom.xml" />
-        <option value="$PROJECT_DIR$/Server/pom.xml" />
         <option value="$PROJECT_DIR$/SingleSlotTableBB/pom.xml" />
         <option value="$PROJECT_DIR$/StandardCardBB/pom.xml" />
         <option value="$PROJECT_DIR$/TableAPI/pom.xml" />
@@ -30,7 +29,7 @@
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="corretto-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

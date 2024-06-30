@@ -1,10 +1,4 @@
 module DurakGameAPI {
-    requires StandardCardBB;
-    requires DurakCardInteractionBB;
-    requires CardMapBB;
-    requires MultipleSlotsTableBB;
-    requires EmptyRoundBB;
-
     exports com.blocker.cardgames.durakgame.api.action;
     exports com.blocker.cardgames.durakgame.api.board;
     exports com.blocker.cardgames.durakgame.api.config;

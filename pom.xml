@@ -31,6 +31,9 @@
         <!--Different Card games-->
         <module>DurakGameAPI</module>
         <module>RoundMaster</module>
+
+        <!--Server-->
+        <module>Server</module>
     </modules>
 
     <properties>
