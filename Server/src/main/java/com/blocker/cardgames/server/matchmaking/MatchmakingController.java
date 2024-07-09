@@ -8,6 +8,8 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
+import java.security.Principal;
+
 @Controller
 @SuppressWarnings("unused")
 public class MatchmakingController {
@@ -29,8 +31,9 @@ public class MatchmakingController {
     @MessageMapping("/matchmaking/{action}")
     public void matchmakingRequest(
             @DestinationVariable MatchmakingAction action,
-            @Payload(required = false) MatchmakingRequestMessage message) {
+            @Payload(required = false) MatchmakingRequestMessage message,
+            Principal principal) {
         log.info("Matchmaking message received: {}, {}", action, message);
-        matchmakingService.handleClientMessage(action, message);
+        matchmakingService.handleClientMessage(action, message, principal.getName());
     }
 }

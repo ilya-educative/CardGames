@@ -4,5 +4,5 @@ import com.blocker.cardgames.server.broadcast.BroadcastData;
 
 @FunctionalInterface
 public interface Action {
-    BroadcastData execute();
+    BroadcastData execute(MatchmakingRequestMessage requestMessage, Player player);
 }

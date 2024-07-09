@@ -46,4 +46,8 @@ public class Match<T extends Joiner> {
     public UUID uuid() {
         return uuid;
     }
+
+    public List<T> queue() {
+        return queue;
+    }
 }
